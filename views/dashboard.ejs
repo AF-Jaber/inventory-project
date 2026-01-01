@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Inventory MS</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<div class="d-flex">
+    <!-- Sidebar -->
+   <%- include('partials/sidebar') %>
+
+    <!-- Main Content -->
+    <div class="container-fluid p-4">
+        <h2>Dashboard</h2>
+        
+        <!-- Stats Cards -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-3">
+                <div class="card text-white bg-primary p-3">
+                    <h3><%= totalProducts %></h3>
+                    <p>Total Products</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-success p-3">
+                    <h3><%= totalStock %></h3>
+                    <p>Total Stock</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-warning p-3">
+                    <h3>$<%= totalValue %></h3>
+                    <p>Total Value</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-danger p-3">
+                    <h3><%= lowStockItems.length %></h3>
+                    <p>Low Stock Items</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Low Stock Warning Table -->
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h5 class="mb-0">Low Stock Alerts</h5>
+            </div>
+            <div class="card-body">
+                <% if (lowStockItems.length > 0) { %>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% lowStockItems.forEach(item => { %>
+                                <tr>
+                                    <td><%= item.name %></td>
+                                    <td><%= item.category %></td>
+                                    <td class="text-danger fw-bold"><%= item.quantity %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                <% } else { %>
+                    <p class="text-muted">All stock levels are good!</p>
+                <% } %>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
