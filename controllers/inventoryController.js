@@ -1,7 +1,6 @@
 const Product = require('../models/Product');
 const Category = require('../models/Category');
 exports.getDashboard = async (req, res) => {
-    // Note: We will handle the "is logged in" check in the Routes (Cleaner)
     
     try {
         const products = await Product.find();

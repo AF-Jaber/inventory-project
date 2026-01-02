@@ -28,6 +28,7 @@ app.use(session({
 app.use('/', require('./routes/authRoutes')); 
 app.use('/', require('./routes/inventoryRoutes'));
 app.use('/', require('./routes/reportRoutes'));
+app.use('/', require('./routes/supplierRoutes'));
 
 // 5. Start Server
 const PORT = process.env.PORT || 3000;
