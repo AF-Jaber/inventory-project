@@ -10,6 +10,7 @@ A full-stack web application for managing inventory, built with Node.js, Express
 - **Category Management**: Organize products by categories
 - **Supplier Management**: Manage supplier information and contacts
 - **Dashboard**: Overview of inventory statistics
+- **Dashboard**: Overview of inventory statistics
 - **Bug Reporting**: Built-in bug reporting system for users
 - **Responsive Design**: Mobile-friendly interface using Bootstrap
 - **Real-time Updates**: Dynamic content loading with EJS
